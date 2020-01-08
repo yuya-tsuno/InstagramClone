@@ -1,4 +1,4 @@
-<%= form_with(model: feed, local: true) do |form| %>
+<%= form_with(model: feed, local: true, url: confirm_feeds_path) do |form| %>
   <% if feed.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
