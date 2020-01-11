@@ -1,10 +1,16 @@
 <h3>Confirm</h3>
 
-<%= form_with(model: @feed, local: true, url: feeds_path) do |feed| %>
-  <%= feed.hidden_field :image %>
-  <%= feed.hidden_field :content %>
-
+<%= form_with(model: @feed, local: true, url: feeds_path) do |form| %>
+  <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.hidden_field :content %>
   <p>Image : <%= @feed.image %></p>
   <p>Comment : <%= @feed.content %></p>
-  <%= feed.submit  "Submit" %>
+  <%= form.submit  "Submit" %>
+<% end %>
+
+<%= form_with(model: @feed, url: new_feed_path, local: true, method: "get") do |form| %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.hidden_field :content %>
+  <%= form.submit "戻る", name: "back" %>
 <% end %>

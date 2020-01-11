@@ -2,7 +2,12 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @feed.image %>
+  <%= image_tag @feed.image.url %>
+</p>
+
+<p>
+  <strong>URL:</strong>
+  <%= @feed.image.url %>
 </p>
 
 <p>

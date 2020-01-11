@@ -9,7 +9,11 @@ class FeedsController < ApplicationController
   end
 
   def new
-    @feed = Feed.new
+    if params[:back]
+      @feed = Feed.new(feed_params)
+    else
+      @feed = Feed.new
+    end
   end
 
   def edit
@@ -59,6 +63,6 @@ class FeedsController < ApplicationController
     end
 
     def feed_params
-      params.require(:feed).permit(:image, :content)
+      params.require(:feed).permit(:image, :image_cache, :content)
     end
 end
