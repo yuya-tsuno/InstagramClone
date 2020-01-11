@@ -17,4 +17,8 @@ class User < ApplicationRecord
   validates :sex, presence: true
 
   validates :address, presence: true
+
+  has_many :feeds
+  has_many :favorites, dependent: :destroy
+
 end
