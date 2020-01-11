@@ -1,8 +1,10 @@
 <h3>Confirm</h3>
 
-<%= form_with(model: @feed, local: true) do |feed| %>
+<%= form_with(model: @feed, local: true, url: feeds_path) do |feed| %>
   <%= feed.hidden_field :image %>
   <%= feed.hidden_field :content %>
-  <p>Image:<%= @feed.image %></p>
-  <p>Comment:<%= @feed.content %></p>
+
+  <p>Image : <%= @feed.image %></p>
+  <p>Comment : <%= @feed.content %></p>
+  <%= feed.submit  "Submit" %>
 <% end %>
