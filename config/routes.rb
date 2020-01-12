@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
   resources :feeds do
+    
     collection do
       post :confirm
+      patch :confirm
     end
+
+    member do
+      patch :confirm
+    end
+
   end
 
   resources :users, only: [:new, :create, :show]

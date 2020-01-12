@@ -1,6 +1,6 @@
 <h3>Confirm</h3>
 
-<%= form_with(model: @feed, local: true, url: feeds_path) do |form| %>
+<%= form_with(model: @feed, local: true, url: confirm_new_or_edit, method: confirm_form_method) do |form| %>
   <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
   <%= form.hidden_field :image_cache %>
   <%= form.hidden_field :content %>

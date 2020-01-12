@@ -1,9 +1,8 @@
-<%= form_with(model: feed, local: true, url:confirm_feeds_path) do |form| %>
+<%= form_with(model: feed, local: true, url: choose_new_or_edit) do |form| %>
 
   <% if feed.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
-
       <ul>
       <% feed.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -13,7 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :image %>
     <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
