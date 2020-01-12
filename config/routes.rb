@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :feeds do
-    
+
     collection do
       post :confirm
       patch :confirm
@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   end
 
-  resources :users, only: [:new, :create, :show]
+  resources :users
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :favorites, only: [:create, :destroy]
 end

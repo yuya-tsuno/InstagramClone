@@ -1,6 +1,6 @@
 <h1>Edit your profile</h1>
 
-<%= form_with(model: @user, local: true) do |form| %>
+<%= form_with(model: @user, local: true, url: user_path, method: 'patch') do |form| %>
 
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -13,32 +13,50 @@
     </div>
   <% end %>
 
-  <%= form.label :name %>
-  <%= form.text_field :name %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
 
-  <%= form.label :email %>
-  <%= form.email_field :email %>
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
 
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-
-  <%= form.label :password_confirmation %>
-  <%= form.password_field :password_confirmation %>
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
   
-  <%= form.label :image %>
-  <%= form.file_field :image %>
+  <div>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
   
-  <%= form.label :introduce %>
-  <%= form.text_field :introduce %>
+  <div>
+    <%= form.label :introduce %>
+    <%= form.text_field :introduce %>
+  </div>
 
-  <%= form.label :age %>
-  <%= form.text_field :age %>
+  <div>
+    <%= form.label :age %>
+    <%= form.text_field :age %>
+  </div>
 
-  <%= form.label :sex %>
-  <%= form.select :sex,  [['Male', 1], ['Female', 2], ['Other', 3]] %>
+  <div>
+    <%= form.label :sex %>
+    <%= form.select :sex,  [['Male', 1], ['Female', 2], ['Other', 3]] %>
+  </div>
 
-  <%= form.label :address %>
-  <%= form.text_field :address %>
+  <div>
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
 
   <%= form.submit "Create my account" %>
 <% end %>
