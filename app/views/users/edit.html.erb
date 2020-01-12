@@ -1,4 +1,4 @@
-<h1>Sign up</h1>
+<h1>Edit your profile</h1>
 
 <%= form_with(model: @user, local: true) do |form| %>
 
@@ -27,6 +27,18 @@
   
   <%= form.label :image %>
   <%= form.file_field :image %>
+  
+  <%= form.label :introduce %>
+  <%= form.text_field :introduce %>
+
+  <%= form.label :age %>
+  <%= form.text_field :age %>
+
+  <%= form.label :sex %>
+  <%= form.select :sex,  [['Male', 1], ['Female', 2], ['Other', 3]] %>
+
+  <%= form.label :address %>
+  <%= form.text_field :address %>
 
   <%= form.submit "Create my account" %>
 <% end %>
