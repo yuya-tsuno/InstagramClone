@@ -2,28 +2,10 @@
 
 <h1>Feeds</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @feeds.each do |feed| %>
-      <tr>
-        <td><%= image_tag feed.image.url %></td>
-        <td><%= feed.content %></td>
-        <td><%= link_to 'Show', feed %></td>
-        <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
-        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Feed', new_feed_path %>
+<% @feeds.each do |feed| %>
+  <p><strong><%= feed.user.name %></strong></p>
+  <p><%= image_tag feed.image.url %></p>
+  <p><%= feed.user.name %>: <%= feed.content %></p>
+  <p><%= link_to 'Show', feed %> | <%= link_to 'Edit', edit_feed_path(feed) %> | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <p>-----------------------------------------------------------------------------------------------------------------------------------------</p>
+<% end %>
