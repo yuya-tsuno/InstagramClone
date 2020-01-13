@@ -1,9 +1,15 @@
 <h1>Feeds</h1>
 
 <% @feeds.each do |feed| %>
-  <p><strong><%= feed.user.name %></strong></p>
+  <p>Posted by <strong><%= feed.user.name %></strong></p>
   <p><%= image_tag feed.image.url %></p>
-  <p><%= feed.user.name %>: <%= feed.content %></p>
-  <p><%= link_to 'Show', feed %> | <%= link_to 'Edit', edit_feed_path(feed) %> | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <p><%= feed.user.name %>: <%= feed.content %> | <%= link_to 'Show', feed %></p>
+
+  <% if current_user %>
+    <% if feed.user_id == current_user.id %>
+      <p>This is your post. You can <%= link_to 'Edit', edit_feed_path(feed) %> or <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %> if you want.</p>
+    <% end %>
+  <% end %>
+
   <p>-----------------------------------------------------------------------------------------------------------------------------------------</p>
 <% end %>
