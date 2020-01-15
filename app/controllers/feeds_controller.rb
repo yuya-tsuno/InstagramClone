@@ -8,7 +8,9 @@ class FeedsController < ApplicationController
   end
 
   def show
-    @favorite = current_user.favorites.find_by(feed_id: @feed.id)
+    if current_user
+      @favorite = current_user.favorites.find_by(feed_id: @feed.id)
+    end
   end
 
   def new
@@ -73,12 +75,22 @@ class FeedsController < ApplicationController
     params.require(:feed).permit(:id, :image, :image_cache, :content)
   end
 
-
-  def correct_user
-    if @feed.user_id != current_user.id
-      flash[:notice] = "権限がないです"
+  def logged_in?
+    unless current_user
+      flash[:notice] = "ログインしてください"
       redirect_to feeds_path
     end
+  end
+
+  def correct_user
+    if current_user
+      if @feed.user_id != current_user.id
+        flash[:notice] = "あなたのアカウントではアクセス権限がありません"
+      end
+    else
+      flash[:notice] = "ログインしてください"
+    end
+    redirect_to feeds_path
   end
   
 end
