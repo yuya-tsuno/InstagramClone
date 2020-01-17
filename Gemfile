@@ -25,6 +25,7 @@ group :development do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'letter_opener_web'
 end
 
 group :test do

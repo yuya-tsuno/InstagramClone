@@ -16,8 +16,11 @@ module InstagramClone
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    g.assets false
-    g.helper false
+    config.generators do |g|
+      # この二行の記述で自動生成しない設定を作成しています。
+      g.assets false
+      g.helper false
+    end
 
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
