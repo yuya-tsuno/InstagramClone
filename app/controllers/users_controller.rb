@@ -51,5 +51,17 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :image_cache, :introduce, :age, :sex, :address)
   end
+
+  def correct_user
+    if !current_user
+      flash[:notice] = "ログインしてください"
+      redirect_to new_session_path
+    else
+      if @user.id != current_user.id
+        flash[:notice] = "あなたのアカウントではアクセス権限がありません"
+        redirect_to new_session_path
+      end
+    end
+  end
   
 end
