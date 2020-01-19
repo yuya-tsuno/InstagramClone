@@ -84,14 +84,14 @@ class FeedsController < ApplicationController
   end
 
   def correct_user
-    if current_user
+    if !current_user
+      flash[:notice] = "ログインしてください"
+      redirect_to new_session_path
       if @feed.user_id != current_user.id
         flash[:notice] = "あなたのアカウントではアクセス権限がありません"
+        redirect_to new_session_path
       end
-    else
-      flash[:notice] = "ログインしてください"
     end
-    redirect_to feeds_path
   end
   
 end
