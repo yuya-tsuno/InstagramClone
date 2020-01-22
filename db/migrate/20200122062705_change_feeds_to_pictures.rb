@@ -1,5 +1,5 @@
-class ChangePicturesToPictures < ActiveRecord::Migration[5.2]
+class ChangeFeedsToPictures < ActiveRecord::Migration[5.2]
   def change
-    rename_table :pictures, :pictures
+    rename_table :feeds, :pictures
   end
 end
