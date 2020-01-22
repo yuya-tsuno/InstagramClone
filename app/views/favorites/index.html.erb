@@ -1,8 +1,8 @@
 <h1>Favorites</h1>
 
 <% @favorites.each do |favorite| %>
-  <p><%= favorite.feed.content %></p>
-  <p><%= image_tag favorite.feed.image.url %></p>
+  <p><%= favorite.picture.content %></p>
+  <p><%= image_tag favorite.picture.image.url %></p>
   <p>Liked by <%= favorite.user.name %></p>
   <p>-----------------------------------------------------------------------------------------------------------------------------------------</p>
 <% end %>

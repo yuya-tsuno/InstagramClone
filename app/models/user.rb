@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   # validates :address, presence: true
 
-  has_many :feeds
+  has_many :pictures
   has_many :favorites, dependent: :destroy
 
 end

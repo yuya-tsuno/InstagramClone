@@ -7,4 +7,5 @@
 <p>性別: <%= @user.sex %></p>
 <p>住所: <%= @user.address %></p>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+<%= link_to 'Edit', edit_user_path(@user) %> | 
+<%= link_to "Login", new_session_path %>

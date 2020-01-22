@@ -1,0 +1,15 @@
+<h1>Pictures</h1>
+
+<% @pictures.each do |picture| %>
+  <p>Posted by <strong><%= picture.user.name %></strong></p>
+  <p><%= image_tag picture.image.url %></p>
+  <p><%= picture.user.name %>: <%= picture.content %> | <%= link_to 'Show', picture %></p>
+
+  <% if current_user %>
+    <% if picture.user_id == current_user.id %>
+      <p>This is your post. You can <%= link_to 'Edit', edit_picture_path(picture) %> or <%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %> if you want.</p>
+    <% end %>
+  <% end %>
+
+  <p>-----------------------------------------------------------------------------------------------------------------------------------------</p>
+<% end %>

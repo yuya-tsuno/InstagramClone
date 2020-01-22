@@ -15,11 +15,11 @@
 
       <% if logged_in? %>
         <h2>Hello, <%= current_user.name %>! Please enjoy InstagramClone!</h2>
-        <p><%= link_to 'Feeds', feeds_path %> | <%= link_to 'New Feed', new_feed_path %> |
+        <p><%= link_to 'Pictures', pictures_path %> | <%= link_to 'New Picture', new_picture_path %> |
          <%= link_to "Your Profile", user_path(current_user.id) %> | <%= link_to "Logout", session_path(current_user.id), method: :delete %></p>
       <% else %>
         <h2>Hello, guest! Please log in here!</h2>
-        <p><%= link_to 'Feeds', feeds_path %> | <%= link_to "Sign up", new_user_path %> | <%= link_to "Login", new_session_path %></p>
+        <p><%= link_to 'Pictures', pictures_path %> | <%= link_to "Sign up", new_user_path %> | <%= link_to "Login", new_session_path %></p>
       <% end %>
     </header>
 

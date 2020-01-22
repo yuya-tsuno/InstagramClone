@@ -1,10 +1,10 @@
 ja:
   activerecord:
     models:
-      feed: 投稿
+      picture: 投稿写真
       user: ユーザー
     attributes:
-      feed:
+      picture:
         title: タイトル
         content: 内容
       user:

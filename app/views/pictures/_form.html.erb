@@ -1,10 +1,10 @@
-<%= form_with(model: feed, local: true, url: choose_new_or_edit) do |form| %>
+<%= form_with(model: picture, local: true, url: choose_new_or_edit) do |form| %>
 
-  <% if feed.errors.any? %>
+  <% if picture.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
+      <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
       <ul>
-      <% feed.errors.full_messages.each do |message| %>
+      <% picture.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
+    <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
   </div>

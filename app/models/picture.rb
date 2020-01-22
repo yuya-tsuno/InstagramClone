@@ -1,4 +1,4 @@
-class Feed < ApplicationRecord
+class Picture < ApplicationRecord
   validates :image,  presence: true
   validates :content,  presence: true, length: { in: 1..100}
 

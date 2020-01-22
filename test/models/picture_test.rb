@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FeedMailerTest < ActionMailer::TestCase
+class PictureTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
