@@ -5,16 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'i18n'
+require 'faker'
+
+I18n.locale = :ja
+Faker::Config.locale = :ja
 
 50.times do |n|
   name = Faker::Games::Pokemon.name
-  email = Faker::Internet.email
+  email = "#{SecureRandom.hex(8)}@gmail.com"
   password = "password"
-  image = Faker::Name.name
+  
   User.create!(name: name,
                email: email,
                password: password,
                password_confirmation: password,
-               image: image,
                )
 end

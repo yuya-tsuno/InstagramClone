@@ -27,7 +27,6 @@ class PicturesController < ApplicationController
 
   def create
     @picture = current_user.pictures.build(picture_params)
-
     respond_to do |format|
       if @picture.save
         PictureMailer.picture_mail(@picture).deliver
